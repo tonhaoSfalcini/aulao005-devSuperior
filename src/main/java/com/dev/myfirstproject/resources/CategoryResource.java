@@ -27,7 +27,9 @@ public class CategoryResource {
 	
 	@GetMapping(value="/{id}")
 	public ResponseEntity<Category> findById(@PathVariable Long id){
-		return ResponseEntity.ok().body(rep.findById(id));
+		Category cat = rep.findById(id).get();
+		
+		return ResponseEntity.ok().body(cat);
 	}
 	
 
